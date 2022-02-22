@@ -1,11 +1,20 @@
+
+require('dotenv').config("./.env");
 const {Sequelize,DataTypes}=require("sequelize");
-const sequelize=new Sequelize("admin","root","password",{
-    host:"localhost",
-    dialect:"mysql"
+
+const user=process.env.USER;
+const password=process.env.PASSWORD;
+const host=process.env.HOST;
+const database=process.env.DATABASE;
+const dialect=process.env.DIALECT;
+
+const sequelize=new Sequelize(database,user,password,{
+    host:host,
+    dialect:dialect
 });
 
 sequelize.authenticate().then(()=>{
-    console.log("database connceted");
+    console.log("database connceted",password);
 }).catch((err)=>{
     console.log("Error in connecting datbase",err);
 })
