@@ -2,10 +2,10 @@
 require('dotenv').config("./.env");
 const {Sequelize,DataTypes}=require("sequelize");
 
-const user=process.env.USER;
-const password=process.env.PASSWORD;
-const host=process.env.HOST;
-const database=process.env.DATABASE;
+const user=process.env.MYSQLDB_USER;
+const password=process.env.MYSQLDB_ROOT_PASSWORD;
+const host=process.env.DB_HOST;
+const database=process.env.MYSQLDB_DATABASE;
 const dialect=process.env.DIALECT;
 
 const sequelize=new Sequelize(database,user,password,{

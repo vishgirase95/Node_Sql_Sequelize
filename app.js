@@ -7,7 +7,7 @@ const controller=require("./controller/userController.js");
 const routes=require("./routes/index.route.js")
 const errors=require("./middleware/errors.middleware.js")
 
-const port=process.env.PORT;
+const port=process.env.NODE_DOCKER_PORT;
 app.use(Express.json());
 app.use("/", routes());
 
